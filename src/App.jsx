@@ -94,12 +94,10 @@ function App() {
 
       console.log("This is aray" +aray)  
 
-      if(aray===7){  
-        handlePlay()  
-        stopCry()  
-
-            
-           
+      if(aray===7){ 
+      
+            handlePlay()     
+            stopCry()
             togglePlayPause()  
             setLoading(false);  
             setThala(true)  
@@ -112,12 +110,11 @@ function App() {
            
             return
            } 
-          else {   
-            handleCry()  
-            stopPlay()    
-           
+          else {    
+            handleCry() 
+            stopPlay()  
             setTextData(data)
-       
+        
       setLoading(false); // Change "stop" to false  
       setThala(false)
     } 
@@ -126,21 +123,24 @@ function App() {
 aray=inputValue.length
 
       if(aray===7){ 
-        stopCry() 
-        handlePlay()     
+      
+        handlePlay()    
+        stopCry()  
         togglePlayPause()  
-        setThala(true)
+        setThala(true)  
+        setTextData(data)
       
        } else if(aray==0){   
         stopPlay()    
-        
-        setThala(false)
+        stopCry()
+        setThala(false)  
+        setTextData(data)
         return
        } 
       else {   
+        stopPlay()   
         handleCry()  
-        stopPlay()  
-    
+        setTextData(data)
       
   setLoading(false); // Change "stop" to false   
   setThala(false)
@@ -220,9 +220,9 @@ aray=inputValue.length
   };
   return (
     <div className='flex flex-col gap-9 items-center justify-start w-[100vw]  p-9 relative'>
-      <h1>Is This Thala Or Not?</h1>  
-      {Thala?(<audio ref={audioRef} src={thala} />):
-      (<audio ref={audioRef2} src={cry}  />)  }
+      <h1 className='text-center'>Is This Thala Or Not?</h1>  
+    <audio ref={audioRef} src={thala} />
+      <audio ref={audioRef2} src={cry}  loop/>
 
 
       <Lottie 
