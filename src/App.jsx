@@ -3,7 +3,7 @@ import loader from '../public/loader.gif'
 import thala from "../public/thala.mp3"
 import './App.css'      
 import cry from "../public/cry.mp3"
-import Lottie from 'react-lottie';     
+    
 import doni from "../public/dhooni.mp4"
 import cat from "../public/cat.gif"
 import animationData from "../public/confetti.json"
@@ -13,7 +13,7 @@ function App() {
  
   const audioRef = useRef(null);     
   const audioRef2 = useRef(null);  
-  const [isPaused, setIsPaused] = useState(true);  
+
   const [data,setData]=useState("")  
   const [loading, setLoading] = useState(true);    
   const[Thala,setThala]=useState(false)  
@@ -224,15 +224,6 @@ aray=inputValue.length
     <audio ref={audioRef} src={thala} />
       <audio ref={audioRef2} src={cry}  loop/>
 
-
-      <Lottie 
-	    options={defaultOptions}
-        height={400}
-        width={400}  
-        style={lottieStyles}  
-        isStopped={isPaused}
-        isPaused={isPaused}
-      />
 
 
 
