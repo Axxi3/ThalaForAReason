@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
-import loader from './assets/loader.gif'
-import thala from "./assets/thala.mp3"
+import loader from '../public/loader.gif'
+import thala from "../public/thala.mp3"
 import './App.css'      
-import cry from "./assets/cry.mp3"
+import cry from "../public/cry.mp3"
 import Lottie from 'react-lottie';     
-import doni from "./assets/dhooni.mp4"
-import cat from "./assets/cat.gif"
-import animationData from "./assets/confetti.json"
+import doni from "../public/dhooni.mp4"
+import cat from "../public/cat.gif"
+import animationData from "../public/confetti.json"
 
 function App() {
   const [inputValue, setInputValue] = useState('0');
