@@ -1,19 +1,19 @@
 import { useEffect, useRef, useState } from 'react'
-import loader from '../public/loader.gif'
-import thala from "../public/thala.mp3"
+import loader from './assets/loader.gif'
+import thala from "./assets/thala.mp3"
 import './App.css'      
-import cry from "../public/cry.mp3"
-    
-import doni from "../public/dhooni.mp4"
-import cat from "../public/cat.gif"
-import animationData from "../public/confetti.json"
+import cry from "./assets/cry.mp3"
+import Lottie from 'react-lottie';     
+import doni from "./assets/dhooni.mp4"
+import cat from "./assets/cat.gif"
+import animationData from "./assets/confetti.json"
 
 function App() {
   const [inputValue, setInputValue] = useState('0');
  
   const audioRef = useRef(null);     
   const audioRef2 = useRef(null);  
-
+  const [isPaused, setIsPaused] = useState(true);  
   const [data,setData]=useState("")  
   const [loading, setLoading] = useState(true);    
   const[Thala,setThala]=useState(false)  
@@ -94,10 +94,12 @@ function App() {
 
       console.log("This is aray" +aray)  
 
-      if(aray===7){ 
-      
-            handlePlay()     
-            stopCry()
+      if(aray===7){  
+        handlePlay()  
+        stopCry()  
+
+            
+           
             togglePlayPause()  
             setLoading(false);  
             setThala(true)  
@@ -110,11 +112,12 @@ function App() {
            
             return
            } 
-          else {    
-            handleCry() 
-            stopPlay()  
+          else {   
+            handleCry()  
+            stopPlay()    
+           
             setTextData(data)
-        
+       
       setLoading(false); // Change "stop" to false  
       setThala(false)
     } 
@@ -123,24 +126,21 @@ function App() {
 aray=inputValue.length
 
       if(aray===7){ 
-      
-        handlePlay()    
-        stopCry()  
+        stopCry() 
+        handlePlay()     
         togglePlayPause()  
-        setThala(true)  
-        setTextData(data)
+        setThala(true)
       
        } else if(aray==0){   
         stopPlay()    
-        stopCry()
-        setThala(false)  
-        setTextData(data)
+        
+        setThala(false)
         return
        } 
       else {   
-        stopPlay()   
         handleCry()  
-        setTextData(data)
+        stopPlay()  
+    
       
   setLoading(false); // Change "stop" to false   
   setThala(false)
@@ -220,10 +220,19 @@ aray=inputValue.length
   };
   return (
     <div className='flex flex-col gap-9 items-center justify-start w-[100vw]  p-9 relative'>
-      <h1 className='text-center'>Is This Thala Or Not?</h1>  
-    <audio ref={audioRef} src={thala} />
-      <audio ref={audioRef2} src={cry}  loop/>
+      <h1>Is This Thala Or Not?</h1>  
+      {Thala?(<audio ref={audioRef} src={thala} />):
+      (<audio ref={audioRef2} src={cry}  />)  }
 
+
+      <Lottie 
+	    options={defaultOptions}
+        height={400}
+        width={400}  
+        style={lottieStyles}  
+        isStopped={isPaused}
+        isPaused={isPaused}
+      />
 
 
 
