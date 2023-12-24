@@ -223,7 +223,9 @@ aray=inputValue.length
   };
   return (
     <div className='flex flex-col gap-9 items-center justify-start w-[100vw]  p-9 relative'>
-      <h1 className='text-center'>Is This Thala Or Not?</h1>  
+    <h1 class="text-center text-[2.2rem] sm:text-[55px] md:text-[45px] lg:text-[65px] xl:text-[85px]">Is This Thala Or Not?</h1>
+
+
     <audio ref={audioRef} src={thala} />
       <audio ref={audioRef2} src={cry}  loop/>
 
@@ -242,7 +244,7 @@ aray=inputValue.length
 
 
 
-      <div className=" flex gap-5 input z-10">
+      <div className=" flex gap-5 input z-10  sm:flex-row flex-col">
         <input type="text" id="fname" name="fname" placeholder="Type your thing" value={inputValue}
           onChange={handleInputChange} className='w-[300px] rounded-[30px] h-[50px] text-[19px] pl-[20px]' />
         <button type="button" className='rounded-[50px] bg-white text-[#242424] hover:bg-[#242424]  hover:text-[#ffffff]' onClick={Check}>Search</button>
