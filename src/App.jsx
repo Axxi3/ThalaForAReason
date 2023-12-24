@@ -3,7 +3,8 @@ import loader from './assets/loader.gif'
 import thala from "./assets/thala.mp3"
 import './App.css'      
 import cry from "./assets/cry.mp3"
-import Lottie from 'react-lottie';     
+// import Lottie from 'react-lottie';     
+import { Player } from '@lottiefiles/react-lottie-player';  
 import doni from "./assets/dhooni.mp4"
 import cat from "./assets/cat.gif"
 import animationData from "./assets/confetti.json"
@@ -48,14 +49,14 @@ function App() {
 
 
 
-  const defaultOptions = {
-    loop: false,
-    autoplay: true,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice"
-    }
-  };
+  // const defaultOptions = {
+  //   loop: false,
+  //   autoplay: true,
+  //   animationData: animationData,
+  //   rendererSettings: {
+  //     preserveAspectRatio: "xMidYMid slice"
+  //   }
+  // };
 
 
 
@@ -208,7 +209,9 @@ aray=inputValue.length
     top: 0,
     left: 0,  
     width:"100vw",  
-    height:"100vh"
+    height:"100vh",
+    
+    PointerEvent: "none"
   }; 
 
   const handleShareButtonClick = () => {
@@ -225,8 +228,8 @@ aray=inputValue.length
       <audio ref={audioRef2} src={cry}  loop/>
 
 
-      <Lottie 
-	    options={defaultOptions}
+      <Player 
+	    src={animationData}
         height={400}
         width={400}  
         style={lottieStyles}  
@@ -244,6 +247,8 @@ aray=inputValue.length
           onChange={handleInputChange} className='w-[300px] rounded-[30px] h-[50px] text-[19px] pl-[20px]' />
         <button type="button" className='rounded-[50px] bg-white text-[#242424] hover:bg-[#242424]  hover:text-[#ffffff]' onClick={Check}>Search</button>
       </div>
+
+      
       {loading ? (
       <div className="searcher">
         <img src={loader} alt="" className='h-[350px]' />
